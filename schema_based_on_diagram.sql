@@ -21,3 +21,10 @@ CREATE TABLE invoices (
   medical_history_id INT REFERENCES medical_histories(id) NOT NULL,
   PRIMARY KEY(id)
 );
+
+CREATE TABLE treatments(
+  id SERIAL,
+  type VARCHAR(100),
+  name VARCHAR(100),
+  PRIMARY KEY(id)
+);
