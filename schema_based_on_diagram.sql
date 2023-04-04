@@ -21,3 +21,32 @@ CREATE TABLE invoices (
   medical_history_id INT REFERENCES medical_histories(id) NOT NULL,
   PRIMARY KEY(id)
 );
+
+CREATE TABLE treatments(
+  id SERIAL,
+  type VARCHAR(100),
+  name VARCHAR(100),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE invoice_items(
+  id SERIAL,
+  unit_price DECIMAL(10,2) NOT NULL,
+  quantity INT NOT NULL,
+  total_price DECIMAL(10,2),
+  invoice_id INT REFERENCES invoices(id),
+  treatment_id INT REFERENCES treatments(id),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE medical_histories_treatments(
+  medical_histories_id INT REFERENCES medical_histories(id) NOT NULL,
+  treatments_id INT REFERENCES treatments(id) NOT NULL
+);
+
+CREATE INDEX idx_patient_id ON medical_histories (patient_id);
+CREATE INDEX idx_invoice_id ON invoice_items (invoice_id);
+CREATE INDEX idx_treatment_id ON invoice_items (treatment_id);
+CREATE INDEX idx_medical_histories_id ON medical_histories_treatments (medical_histories_id);
+CREATE INDEX idx_treatments_id ON medical_histories_treatments (treatments_id);
+CREATE INDEX idx_medical_histories_id_invoice ON invoices(medical_histories_id);
