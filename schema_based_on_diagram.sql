@@ -28,3 +28,18 @@ CREATE TABLE treatments(
   name VARCHAR(100),
   PRIMARY KEY(id)
 );
+
+CREATE TABLE invoice_items(
+  id SERIAL,
+  unit_price DECIMAL(10,2) NOT NULL,
+  quantity INT NOT NULL,
+  total_price DECIMAL(10,2),
+  invoice_id INT REFERENCES invoices(id),
+  treatment_id INT REFERENCES treatments(id),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE medical_histories_treatments(
+  medical_histories_id INT REFERENCES medical_histories(id) NOT NULL,
+  treatments_id INT REFERENCES treatments(id) NOT NULL
+);
