@@ -119,6 +119,12 @@ Initialize the psql console and make sure to be inside the cloned repository fol
 
 - LinkedIn: [David Isea](https://www.linkedin.com/in/davidisea/)
 
+👤 Nelson Araujo
+
+- GitHub: [@NelsonAraujo93](https://github.com/NelsonAraujo93)
+
+- LinkedIn: [Nelson Araujo](https://www.linkedin.com/in/nelson-araujo-paredes/)
+
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
